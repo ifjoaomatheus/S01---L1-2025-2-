@@ -1,10 +1,10 @@
-# Classe base
+###### Ex 1:
+
 class Personagem:
     def __init__(self, vida, resistencia):
         self._vida = vida
         self._resistencia = resistencia
 
-    # Getter e Setter controlados para vida
     @property
     def vida(self):
         return self._vida
@@ -20,18 +20,16 @@ class Personagem:
         return f"Personagem com {self._vida} de vida e {self._resistencia} de resistência"
 
 
-# Classe filha
 class Cavaleiro(Personagem):
     def __init__(self, vida, resistencia, armadura_pesada):
         super().__init__(vida, resistencia)
-        self.armadura_pesada = armadura_pesada  # atributo exclusivo
+        self.armadura_pesada = armadura_pesada
 
     def __str__(self):
         estado_armadura = "com armadura pesada" if self.armadura_pesada else "sem armadura pesada"
         return f"Cavaleiro {estado_armadura}, com {self._vida} de vida e {self._resistencia} de resistência"
 
 
-# Exemplos de uso:
 if __name__ == "__main__":
     p1 = Personagem(100, 50)
     print(p1)
@@ -39,6 +37,5 @@ if __name__ == "__main__":
     c1 = Cavaleiro(150, 80, True)
     print(c1)
 
-    # Testando setter
     c1.vida = -10
     print(c1)
